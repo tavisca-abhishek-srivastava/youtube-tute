@@ -1,0 +1,37 @@
+name: Hello World Workflow
+
+on: 
+    workflow_dispatch
+
+jobs:
+    hello-abhishek:
+        runs-on:    ubuntu-latest
+        steps:
+            -   
+                name:   hello world
+                uses:   actions/checkout@v2
+
+            -   name:   create dir    
+                run:    mkdir "/tmp/Abhishek"
+                shell:  bash
+    read-file-content:
+        runs-on:    windows-latest
+        steps:  
+        -   
+            name:   create folder    
+            run:    new-item "c:\temp\Abhishek.txt"
+            shell:  powershell
+
+        -   
+            name:   add content in file abhishek.txt    
+            run:    Add-Content -Value "hello World" -Path c:\temp\abhishek.txt
+            shell:  powershell
+
+        -   
+            name:   read content from file abhishek.txt    
+            run:    get-Content  -Path c:\temp\abhishek.txt
+            shell:  powershell
+
+
+
+
